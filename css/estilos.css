@@ -1,0 +1,427 @@
+/************************************************GRID GENERAL********************************************************************************/
+.contenedor{
+    /*Coge todo el espacio*/
+    width: 100%;
+    /*Maquetar - GRID GENERAL*/
+    display: grid;
+    /*Espacio entre bordes*/
+    grid-gap: 1%;
+    /*Definimos las columnas*/ 
+    grid-template-columns: repeat(4, 1fr); 
+    /*Definimos filas*/
+    grid-template-rows: repeat(4, auto); 
+    /*Margen inferior*/
+    margin-bottom: 5%;
+    /*Margen derecha*/
+    margin-right: 2%;
+}
+
+/*Color de fondo y bordes redondeados de todo los espacios*/
+.contenedor header,
+.contenedor .contenidoPrincipal,
+.contenedor aside,
+.contenedor footer{
+    /*Color del fondo*/
+    background-color:rgb(223, 223, 223);
+    /*Bordes redondeados*/
+    border-radius: 1vh;
+}
+
+.contenedor header{
+    /************************************************GRID GENERAL********************************************************************************/
+    grid-column-start: 1;/*Coge la columna de donde empieza, en este caso en el 1º*/
+    grid-column-end: 5; /*Coge la columna de donde acaba, en este caso el 5*/
+    grid-row-start: 1; /*Coge la fila donde empieza, en este caso el 1*/
+    grid-row-end: 2; /*Coge la fila donde acaba, en este caso el 2*/
+
+    /*Altura en VH para que sea proporcional al tamaño*/
+    height: 10vh;
+
+    /************************************************GRID ESPECÍFICOS********************************************************************************/
+    display:grid;
+    column-gap: 2%;
+    /*Divide en 4 columnas*/
+    grid-template-columns: 25% 25% 25% 25%;
+    /*Solo tiene una fila*/
+    grid-template-rows: 100%;
+    /*Se divide el área en 3 columnas y 1 fila, se asigna letra que luego definimos que va en cada lugar que ocupa dichas letras*/
+    grid-template-areas:"a b c d";
+    /*Ancho de la cabecera*/
+    width: 100%;
+}
+
+.contenedor aside{
+    /*Ocupa  las 4 columnas*/
+    grid-column: span 4;
+    /*Coge desde la fila 2 a la 3*/
+    grid-row-start: 2;
+    grid-row-end: 3;
+    width: 100%;
+    height: 7vh;
+}
+
+/*Espacio del contenido*/
+.contenedor .contenidoPrincipal, #imagen, #video, #animacion {
+    grid-column: span 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    width: 100%;
+    height: 68vh; 
+}
+
+/*Título de cada contenido*/
+.principal1 h1, .principal2 h1, .imagen1 h1, .imagen2 h1, .video1 h1, .video2 h1, .animacion1 h1, .animacion2 h1 {
+    color: red;
+    text-align: center;
+    margin-top: 20vh;
+    /*Todo el título 1 del contenido principal en mayúscula*/
+    text-transform: uppercase;
+}
+
+/*Párrafo de cada contenido*/
+.principal1 p, .principal2 p, .imagen1 p, .imagen2 p,.video1 p, .video2 p, .animacion1 p, .animacion2 p {
+    color: blue;
+    text-align: center;
+}
+
+/*Contenido interacción*/
+.contenidoPrincipal .principal1, .contenidoPrincipal .imagen1, .contenidoPrincipal .video1, .contenidoPrincipal .animacion1 {
+    float: left;
+    margin-left: 12vh;
+    margin-top: 5vh;
+    border: pink solid 0.5vh;
+    width: 85vh;
+    height: 55vh;
+}
+
+/*Contenido objetos*/
+.contenidoPrincipal .principal2, .contenidoPrincipal .imagen2, .contenidoPrincipal .video2, .contenidoPrincipal .animacion2 {
+    float: right;
+    margin-right: 12vh;
+    margin-top: 5vh;
+    border: black solid 0.5vh;
+    width: 85vh;
+    height: 55vh;
+}
+
+.contenedor footer{
+    grid-column: span 4; 
+    grid-row-start: 4;
+    grid-row-end: 5;
+    height: 12vh;
+}
+
+#foto{
+    /*Posición b del grid (a b c d) - Parte centrada más a la izquierda*/
+    grid-area: b;
+    /*Alineación vertical*/
+    align-self: center;
+    /*Margen, movemos de izquierda a la derecha*/
+    margin-left: 20vh;
+    width: 10vh;
+    /*Borde redondeado*/
+    border-radius: 10%;
+    /*Borde en color negro de línea continua*/
+    border: 0.3vh rgb(0, 0, 0) solid;
+}
+
+#tituloCabecera{
+    /*Posición c del grid (a b c d) - Parte centrada más a la derecha*/
+    grid-area: c;
+    align-self: center;
+    /*Margen, movemos de derecha a izquierda*/
+    margin-left: -20vh;
+    width: 100%;
+}
+
+/*ASIDE*/
+/************************************************LISTA EN HORIZONTAL********************************************************************************/
+.ponerEnLinea1 {
+    list-style-type: none;   /*Quitamos el símbolo de la lista*/
+    margin-top: 2.6vh;
+}
+
+.ponerEnLinea2 {
+    display: inline;  /*Ponemos en línea la lista*/
+    margin-right: 10vh;  /*Separación entre las palabras de la lista */
+}
+
+/**************************************************************************************************************************************************/
+
+.centrarLista{
+    margin-left: 72vh;
+}
+
+/*Enlaces*/
+.efectoaside{
+    border: 0.1vh solid blue;
+    /*Poner margen entre la letra y el borde rojo, separarlos*/
+    padding: 1vh;
+}
+
+/*Efecto enlaces*/
+aside a:link { 
+    /*Quita la línea inferior del enlace*/
+    text-decoration: none;
+    /*Color de la lectra*/
+    color: black;
+    padding-bottom: 50vh;
+}
+
+/*Efecto cursor*/
+.mano {
+    cursor: pointer;
+}
+
+.objeto1, .objeto2, .objeto3{
+    color: black;
+}
+
+/************************************************OCULTAR Y MOSTRAR SECCIÓN********************************************************************************/
+/*Ocultar contenido hasta que pulsemos los enlaces, ponemos input para ocultar el redondel del checked*/
+.ocultarImagen, .ocultarVideo, .ocultarAnimacion, #zonaprincipal, #imagen, #video, #animacion, #myVideo1, #myVideo2 {
+    display: none;
+}
+
+/*Cuando pulsemos los enlaces, como hemos elegido checked aparecerá el contenido, hemos puesto un nombre diferente a cada enlace para que el resto permanezcan oculto*/
+#imagen:checked + .ocultarImagen, #video:checked + .ocultarVideo, #animacion:checked + .ocultarAnimacion, #myVideo1x, #myVideo2x {
+    display: block;  /*Aparezca contenido*/
+}
+
+
+/************************************************************JQUERY**************************************************************************************/
+
+/*JQUERY*/
+/*Color de letra seleccionado*/
+.seleccionados{
+    color: red;
+    font-size: x-large;
+}
+
+
+/***************************************************************ZONA IMAGEN***********************************************************************************/
+/*Tamaño y margen que tendrán las fotos dentro del GRID*/
+.coche01, .coche02, .coche03, .coche04, .coche05, .coche06{
+    width: 95%;
+    height: 95%;
+    margin-left: 0.8vh;
+    margin-top: 0.5vh;
+    margin-bottom: -20vh;
+}
+
+/******GRID ESPECÍFICOS - FORMA COLLAGE*****/
+/*Copiamos la parte común del GRID, ya que solo cambia el orden*/
+.imagen2{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: 33% 33% 1fr;
+    grid-gap: 0.1vh;
+}
+
+/*Distribución 1*/
+.GRID_Imagen1{
+    grid-template-areas:"imagen1 imagen1 imagen2"
+                        "imagen3 imagen4 imagen2"
+                        "imagen5 imagen6 imagen6";
+}
+
+/*Distribución 2*/
+.GRID_Imagen2{
+    grid-template-areas:"imagen4 imagen6 imagen6"
+                        "imagen4 imagen1 imagen1"
+                        "imagen3 imagen5 imagen2";
+}
+
+/*Situar fotos en GRID*/
+.coche01{
+    grid-area:imagen1;
+}        
+.coche02{
+    grid-area:imagen2;
+}        
+.coche03{
+    grid-area:imagen3;
+}        
+.coche04{
+    grid-area:imagen4;
+}        
+.coche05{
+    grid-area:imagen5;
+}        
+.coche06{
+    grid-area:imagen6;
+}        
+
+/*Títulos de los selectores*/
+.panel_opciones{ 
+    border: solid 0.2vh black;
+    margin-left: 15vh;
+    width:64%;
+    background-color: rgb(189, 189, 189);
+}
+
+/*Selectores*/
+.seleccion_distribucion,.seleccion_imagen, .seleccion_efecto{
+    display:flex;
+    flex-direction: row;
+    justify-content:center ;
+    border: 0.2vh solid black;
+    margin-left: 15vh;
+    margin-right: 15vh;
+    margin-top: -1vh;
+}
+
+/*Borde de selección*/
+.bordeImagen{
+    border: 1vh red solid;
+    z-index: 5;
+}    
+
+/*Efectos*/
+.grayscale{
+    filter: grayscale();
+}
+.invert{
+    filter: invert();
+}
+
+.sepia{
+    filter: sepia();
+}
+
+
+
+/*Borde de tabla*/
+th, td {
+    border-bottom: 0.2vh solid black;
+}
+
+table{
+    margin-top: 2vh;
+    margin-left: 35vh;
+}
+
+
+/***************************************************************ZONA VÍDEO***********************************************************************************/
+/*Centrar el vídeo*/
+.objeto_video{
+    margin-left: 2vh;
+    margin-top: 8vh;
+}
+
+#myVideo1, #myVideo2{
+    width: 80vh;
+    height: 40vh;
+}
+
+/********************Botones****************************************************/
+.cuadrarLetra {
+    margin-left: 15vh;
+}
+
+#boton_cargar{ 
+    border: solid 0.5vh #000000;
+    margin-left: 25vh; 
+    margin-right: 1vh;
+}
+
+#boton_reproducir, #boton_pausar{ 
+    border: solid 0.5vh #000000; 
+    margin-right: 1vh;
+}
+
+
+/* Cursor */
+.mano-abierta {
+    cursor: -webkit-grab; 
+    cursor: grab;
+}
+
+/*******************************ANIMACION**********************************************************************************************************************/
+
+#animado{
+    width: 10vh;
+    height: 10vh;
+    background-color: #ff0000;
+    animation-name: animado;
+    animation-duration: 0s; /*VELOCIDAD DE LA ANIMACIÓN 0 segundo lo iniciamos para que no comience la animación hasta que pongamos valor en JQUERY*/
+    border-radius: 0px; /*BORDE, iniciamos a 0 para que no tenga y sea un cuadrado, luego con JQUERY haremos que se convierta en círculo*/
+    animation-timing-function: ease-in-out; /*Empieza y termina lento*/
+    animation-iteration-count: infinite; /*Nunca acabará*/
+    margin-top: 1vh;
+    margin-left: 1vh;
+}
+
+
+@keyframes animado{
+    25% {  /*Superior derecha -> (x,y)*/
+    transform:translate(73vh); 
+    -ms-transform:translate(73vh); 
+    -webkit-transform:translate(73vh); 
+    -moz-transform:translate(73vh);
+    background-color: chartreuse;
+   } 
+
+   50% { /*Inferior derecha - (x-y)*/
+    transform:translate(74vh,43vh); 
+    -ms-transform:translate(74vh,43vh); 
+    -webkit-transform:translate(74vh,43vh); 
+    -moz-transform:translate(74vh,43vh);
+    background-color: deeppink;
+   } 
+
+   75% { /*Inferior izquierda - (x-y)*/
+    transform:translate(0vh,43vh); 
+    -ms-transform:translate(0vh,43vh); 
+    -webkit-transform:translate(0vh,43vh); 
+    -moz-transform:translate(0vh,43vh);
+    background-color: mediumblue;
+   }
+
+   100% { /*Superior izquierda - (x-y)*/
+    transform:translate(0vh); 
+    -ms-transform:translate(0vh); 
+    -webkit-transform:translate(0vh); 
+    -moz-transform:translate(0vh);
+    background-color: red;
+   }
+}
+
+/*******************************PIE DE PÁGINA**********************************************************************************************************************/
+#tituloPie{
+    /*Alineación horizontal*/
+    text-align: center;
+    margin-top: 4vh;
+    background-color: rgb(0, 0, 0);
+    color: rgb(0, 255, 247); 
+}
+
+#tituloPie:hover{
+    animation-name: tituloPie;
+    animation-duration: 2s; /*5 segundo en acabar la secuencia y luego se repite indefinidamente con animation-iteration-count: infinite;*/
+    animation-timing-function: ease-in-out; /*Empieza y termina lento*/
+    animation-iteration-count: infinite; /*Nunca acabará*/
+}
+
+@keyframes tituloPie{
+    form{
+        background-color: rgb(0, 255, 247);  
+        color: rgb(0, 0, 0);
+    }
+    to{
+        background-color: rgb(0, 255, 247);
+        color: rgb(0, 0, 0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

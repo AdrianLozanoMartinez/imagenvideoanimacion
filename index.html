@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tema 6 - Adrián L.M.</title>
+    <!-- Hoja de estilo -->
+    <link rel="stylesheet" href="./css/estilos.css" media="screen" role="Aplicar estilo">
+    <!-- JQuery -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.js">  </script>
+    <!-- Archivo aparte con funciones jquery creado por nosotros -->
+    <script src="./js/archivojquery.js"></script>
+</head>
+<body>
+    <div class="contenedor">
+        <header>
+            <!-- Foto -->
+            <img src="./img/foto.jpg" alt="foto" id="foto">
+            <!-- Título Cabecera -->
+            <h1 id="tituloCabecera">Adrián Lozano Martínez</h1>
+        </header>
+            
+        <!-- Barra de menú -->
+        <aside role="barra lateral">
+            <ul class="centrarLista ponerEnLinea1" role="Opciones para elegir diferentes zonas">
+                <li class="ponerEnLinea2 efectoaside"><a href="#"><label for="imagen" role="texto para entrar en zona de imagen"><b class="mano objeto1">Imagen</b></label></a></li>
+                <li class="ponerEnLinea2 efectoaside"><a href="#"><label for="video" role="texto para entrar en zona de video"><b class="mano objeto2">Vídeo</b></label></a></li>
+                <li class="ponerEnLinea2 efectoaside"><a href="#"><label for="animacion" role="texto para entrar en zona de animacion"><b class="mano objeto3">Animación</b></label></a></li>
+            </ul>
+        </aside>
+
+         <!-- Cuerpo -->
+        <main class="contenidoPrincipal" role="cuerpo de la web">
+            <!-- Ponemos checked para que aparezca de primera hora -->
+            <input type="radio" id="zonaprincipal" name="mostrarOcultar" checked>
+            <section class="ocultar" role="Muestra la zona principal">
+                <article role="Zona de interacción" class="principal1">
+                    <h1>Zona de interacción</h1>
+                    <p><b>Dependiendo del tipo de elemento multimedia se podrán seleccionar o alterar diferentes efectos o propiedades</b></p>
+                </article>
+                <article role="Zona de objetos" class="principal2">
+                    <h1>Zona de objetos</h1>
+                    <p><b>Se mostrará el objeto con el que vamos a trabajar</b></p>
+                </article>
+            </section>
+            <!-- No ponemos esta vez checked para que aparezca solamente cuando lo pulsemos, de ese modo aparece solo la ventana principal que pongamos -->
+            <input type="radio" id="imagen" name="mostrarOcultar">
+            <section class="ocultarImagen" role="Muestra la zona de Imagen">
+                <article role="ZONA DE INTERACCIÓN de Imagen" class="imagen1">
+               
+                    <!-- Selección de diferentes composiciones de imágenes -->
+                    <p class="panel_opciones" role="Observar diferente forma de verse las imágenes">Selección de distribución</p>
+                    <div class="seleccion_distribucion">
+                        <input type="radio" id="dis_1" name="dis_1" value="1" checked>
+                        <label for="dis_1">Distribución 1</label>
+                        <input type="radio" id="dis_2" name="dis_1" value="2">
+                        <label for="dis_2">Distribución 2</label>
+                    </div>
+                    
+                    <br>
+                    
+                    <!-- Elección de imágenes -->
+                    <p class="panel_opciones" role="Para poder seleccionar las imágenes que veremos en la distribución">Selección de imágenes</p>
+                    <div class="seleccion_imagen">
+                        <!-- value lo cogemos para usarlo en el for y usando img+i cogemos la imagen seleccionada -->
+                        <input class="s_img" type="checkbox" id="s_img1" name="s_img1" value="img1">
+                        <label for="s_img1">Coche 1</label>
+                        <input class="s_img" type="checkbox" id="s_img2" name="s_img2" value="img2" >
+                        <label for="s_img2">Coche 2</label>
+                        <input class="s_img" type="checkbox" id="s_img3" name="s_img3" value="img3" >
+                        <label for="s_img3">Coche 3</label>
+                        <input class="s_img" type="checkbox" id="s_img4" name="s_img4" value="img4" >
+                        <label for="s_img4">Coche 4</label>
+                        <input class="s_img" type="checkbox" id="s_img5" name="s_img5" value="img5" >
+                        <label for="s_img5">Coche 5</label>
+                        <input class="s_img" type="checkbox" id="s_img6" name="s_img6" value="img6" >
+                        <label for="s_img6">Coche 6</label>
+                    </div>  
+                    
+                    <br>
+
+                    <!-- Selección de efectos a aplicar -->              
+                    <p class="panel_opciones" role="Poder elegir los 3 efectos">Selección de efectos</p>
+                    <div class="seleccion_efecto">
+                        <label for="s_efecto">Selecciona efecto:</label>
+                        <select id="s_efecto">
+                            <option value="grayscale" class="grayscale">Gris</option>
+                            <option value="sepia" class="sepia">Sepia</option>
+                            <option value="invert" class="invert">Invertido</option>
+                        </select>
+                        <label for="porcentaje" role="Elegir el porcentaje de efecto queramos que coja, primero debemos pulsar el botón aplicar">Valor:</label>
+                        <input  type="number" id="porcentaje" max="100" min="0" value=0>
+                        <button id="aplicar" type="button"> Aplicar efectos</button> 
+                        <div id="cambios_aplicados"></div>
+                    </div>   
+                    
+                    <!-- Historial -->
+                    <table role="Historial con todas las elecciones, imagen y efecto">
+                        <caption><b>Historial</b></caption>
+                        <thead>
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Efecto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+
+                </article>
+                <!-- Imágenes de coches -->
+                <article role="ZONA DE OBJETOS de Imagen" class="cambioGRID_Imagen GRID_Imagen1 imagen2 efectosImagen">
+                    <img src="./img/01.jpeg" alt="coche01" class="coche01 seleccionImagen1 seleccionImagenes">
+                    <img src="./img/02.jpg" alt="coche02" class="coche02 seleccionImagen2 seleccionImagenes">
+                    <img src="./img/03.jpg" alt="coche03" class="coche03 seleccionImagen3 seleccionImagenes">
+                    <img src="./img/04.jpg" alt="coche04" class="coche04 seleccionImagen4 seleccionImagenes">
+                    <img src="./img/05.jpg" alt="coche05" class="coche05 seleccionImagen5 seleccionImagenes" >
+                    <img src="./img/06.jpg" alt="coche06" class="coche06 seleccionImagen6 seleccionImagenes">
+                </article>
+            </section>
+            <input type="radio" id="video" name="mostrarOcultar">
+            <section class="ocultarVideo" role="Muestra la zona de Sonido">
+                <article role="ZONA DE INTERACCIÓN de Video" class="video1">
+                    <!-- Selección de vídeo -->
+                    <div class="panel panel_video">
+                        <p class="panel_opciones">Selección de opciones</p>
+                    <br>
+                        <label for="videoSeleccion" class="cuadrarLetra">Selecciona video a visualizar:</label>
+                        <select id="videoSeleccion">
+                            <option value="video00" class="video00" role="Texto antes de elegir un vídeo">Vídeos disponibles</option>
+                            <option value="video01" class="video01" role="1º vídeo">01_video</option>
+                            <option value="video02" class="video02" role="2º Vídeo">02_video</option>
+                        </select>
+                        <br><br>
+                        <label for="segundo" class="cuadrarLetra">Segundo en el que desea inicial el video(0-59):</label>
+                        <input  type="number" id="segundo" max="59" min="0" value="0" placeholder="Número" role="Elección de los segundos que queremos que se inicia el vídeo">
+                    
+                        <!-- Botoneras de vídeo -->
+                        <div class="zona_control_video">
+                            <p>Botones de control del video</p>
+                            <canvas id="boton_cargar" width="80" height="70" title="Cargar video" class="mano-abierta" role="Botón que carga el vídeo">
+                                Su navegador no soporta el elemento canvas.
+                            </canvas>
+                            <canvas id="boton_reproducir" width="80" height="70" title="Reproducir video" class="mano-abierta" role="Botón que reproduce el vídeo">
+                                Su navegador no soporta el elemento canvas.
+                            </canvas>
+                            <canvas id="boton_pausar" width="80" height="70" title="Pausar video" class="mano-abierta" role="Botón que para el vídeo">
+                                Su navegador no soporta el elemento canvas.
+                            </canvas>
+                        </div>
+                    </div>    
+                    
+                </article>
+                <article role="ZONA DE OBJETOS de Video" class="video2">
+                   <!-- Vídeos de coches -->
+                    <div class="objeto_video">
+                        <abbr title="Creado por Adrián Lozano Martínez"><video id="myVideo1" controls preload="metadata" role="reproduce vídeo">
+                            <source src="./videos/01_video.ogg" type="video/ogg" role="Vídeo 1 para reproducir si se elige">
+                            Your browser does not support the audio element.
+                        </video> </abbr>
+                        <br>
+                        <abbr title="Descargado"><video id="myVideo2" controls preload="metadata" role="reproduce vídeo">
+                            <source src="./videos/02_video.ogg" type="video/ogg" role="Vídeo 2 para reproducir si se elige">
+                            Your browser does not support the audio element.
+                        </video> </abbr>
+
+                    </div>
+
+                </article>
+            </section>
+            <input type="radio" id="animacion" name="mostrarOcultar">
+            <section class="ocultarAnimacion" role="Muestra la zona de Vídeo">
+                <article role="ZONA DE INTERACCIÓN de Animación" class="animacion1">
+                    
+                    <div class="panel panel_animacion">
+                        <p class="panel_opciones">Selección de opciones</p>
+                        <br>
+                        <label for="tiempo" class="cuadrarLetra">Indica <b>tiempo</b> que durará la animación en segundos: (0-15)</label>
+                        <input  type="number" id="tiempo" max="15" min="0" value=0>
+                        <br><br>
+                        <label for="borde" class="cuadrarLetra">Indica pixeles (px) para indicar <b>borde redondeado</b>: (0-90)</label>
+                        <input  type="number" id="borde" max="90" min="0" value=0>
+
+                    </div>
+
+                </article>
+                <article role="ZONA DE OBJETOS de Animación" class="animacion2">
+
+                        <div id="animado">
+        
+                        </div>
+
+                </article>
+            </section>
+        </main>
+        
+        <footer>
+            <!-- Título Pie de página -->
+            <h1 id="tituloPie">I.E.S. Cristóbal de Monroy</h1>
+        </footer>
+    </div>
+</body>
+</html>
